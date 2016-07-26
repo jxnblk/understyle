@@ -163,4 +163,3 @@ Props:
 - `flexNone` boolean - sets `flex: 'none'`
 
 MIT License
-
