@@ -21,16 +21,18 @@ export const setScale = (scale = initialScale) => ({
   mb,
   ml
 } = {}) => {
+  const getScaledProp = getProp(scale)
+
   const result = assign({},
-    getProp('margin')(scale)(m),
-    getProp('marginTop')(scale)(mt),
-    getProp('marginBottom')(scale)(mb),
-    getProp('marginTop')(scale)(my),
-    getProp('marginBottom')(scale)(my),
-    getProp('marginLeft')(scale)(ml),
-    getProp('marginRight')(scale)(mr),
-    getProp('marginLeft')(scale)(mx),
-    getProp('marginRight')(scale)(mx)
+    getScaledProp('margin')(m),
+    getScaledProp('marginTop')(mt),
+    getScaledProp('marginBottom')(mb),
+    getScaledProp('marginTop')(my),
+    getScaledProp('marginBottom')(my),
+    getScaledProp('marginLeft')(ml),
+    getScaledProp('marginRight')(mr),
+    getScaledProp('marginLeft')(mx),
+    getScaledProp('marginRight')(mx)
   )
 
   return result
