@@ -1,22 +1,28 @@
 
 import assign from 'object-assign'
-import margin from './margin'
-import padding from './padding'
 import display from './display'
-import column from './column'
 import flex from './flex'
+import { setScale as marginSetScale } from './margin'
+import { setScale as paddingSetScale } from './padding'
+import { setColumns } from './column'
 
-const understyle = (props) => {
+export const createUnderstyle = ({ scale, columns } = {}) => (props) => {
+  const margin = marginSetScale(scale)
+  const padding = paddingSetScale(scale)
+  const column = setColumns(columns)
+
   const style = assign({},
+    display(props),
+    flex(props),
     margin(props),
     padding(props),
-    display(props),
-    column(props),
-    flex(props)
+    column(props)
   )
 
   return style
 }
+
+const understyle = createUnderstyle()
 
 export default understyle
 

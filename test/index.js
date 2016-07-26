@@ -1,6 +1,7 @@
 
 import test from 'ava'
 import _style, {
+  createUnderstyle,
   margin,
   padding,
   display,
@@ -10,6 +11,10 @@ import _style, {
 
 test('exports a default function', t => {
   t.is(typeof _style, 'function')
+})
+
+test('exports a createUnderstyle function', t => {
+  t.is(typeof createUnderstyle, 'function')
 })
 
 test('exports a margin function', t => {
@@ -53,6 +58,28 @@ test('combines style props', t => {
     width: '50%',
     display: 'inline-block',
     flex: 'none'
+  })
+})
+
+test('createUnderstyle returns a function', t => {
+  const customUnderstyle = createUnderstyle()
+  t.is(typeof customUnderstyle, 'function')
+})
+
+test('createUnderstyle sets custom scale and column count', t => {
+  const __style = createUnderstyle({
+    scale: [0, 6, 12, 18, 24, 30, 36],
+    columns: 16
+  })
+  const sx = __style({
+    m: 1,
+    p: 2,
+    col: 4
+  })
+  t.deepEqual(sx, {
+    margin: 6,
+    padding: 12,
+    width: '25%'
   })
 })
 
