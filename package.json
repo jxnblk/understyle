@@ -1,13 +1,18 @@
 {
   "name": "understyle",
-  "version": "1.0.0-beta.1",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.0-beta.2",
+  "description": "Functional style utilities for authoring JavaScript style objects",
+  "main": "dist/index.js",
   "scripts": {
     "prepublish": "mkdir -p dist && babel src --out-dir dist",
-    "test": "ava -v"
+    "test": "standard && ava -v"
   },
-  "keywords": [],
+  "keywords": [
+    "style",
+    "css",
+    "css-in-js",
+    "utility"
+  ],
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {

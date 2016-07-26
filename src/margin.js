@@ -15,7 +15,7 @@ export const setScale = (scale = initialScale) => ({
 } = {}) => {
   const getScaledProp = getNumberProp(scale)
 
-  const result = assign({},
+  const style = assign({},
     getScaledProp('margin')(m),
     getScaledProp('marginTop')(mt),
     getScaledProp('marginBottom')(mb),
@@ -30,7 +30,7 @@ export const setScale = (scale = initialScale) => ({
     getScaledProp('marginRight')(gutter, -1)
   )
 
-  return result
+  return style
 }
 
 const margin = setScale()

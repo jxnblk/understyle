@@ -14,7 +14,7 @@ export const setScale = (scale = initialScale) => ({
 } = {}) => {
   const getScaledProp = getNumberProp(scale)
 
-  const result = assign({},
+  const style = assign({},
     getScaledProp('padding')(p),
     getScaledProp('paddingTop')(pt),
     getScaledProp('paddingBottom')(pb),
@@ -26,7 +26,7 @@ export const setScale = (scale = initialScale) => ({
     getScaledProp('paddingRight')(px)
   )
 
-  return result
+  return style
 }
 
 const padding = setScale()
