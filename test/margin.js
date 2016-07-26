@@ -83,6 +83,16 @@ initialScale.forEach((step, i) => {
   })
 })
 
+initialScale.forEach((step, i) => {
+  test(`adds gutter ${i} (i.e. negative x-axis margins)`, t => {
+    const sx = margin({ gutter: i })
+    t.deepEqual(sx, {
+      marginLeft: -step,
+      marginRight: -step
+    })
+  })
+})
+
 test('returns shorthand and full margin properties', t => {
   const sx = margin({ m: 2, mb: 4 })
   t.deepEqual(sx, {

@@ -1,6 +1,6 @@
 {
   "name": "understyle",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
     "babel-cli": "^6.11.4",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-stage-0": "^6.5.0",
-    "babel-register": "^6.11.5"
+    "babel-register": "^6.11.5",
+    "standard": "^7.1.2"
   },
   "dependencies": {
     "object-assign": "^4.1.0"

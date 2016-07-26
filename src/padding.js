@@ -1,6 +1,6 @@
 
 import assign from 'object-assign'
-import getProp from './get-prop'
+import getNumberProp from './get-number-prop'
 import initialScale from './initial-scale'
 
 export const setScale = (scale = initialScale) => ({
@@ -12,7 +12,7 @@ export const setScale = (scale = initialScale) => ({
   pb,
   pl
 } = {}) => {
-  const getScaledProp = getProp(scale)
+  const getScaledProp = getNumberProp(scale)
 
   const result = assign({},
     getScaledProp('padding')(p),

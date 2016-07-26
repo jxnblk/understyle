@@ -1,16 +1,7 @@
 
 import assign from 'object-assign'
-import getProp from './get-prop'
-
-export const initialScale = [
-  0,
-  8,
-  16,
-  32,
-  48,
-  64,
-  96
-]
+import getNumberProp from './get-number-prop'
+import initialScale from './initial-scale'
 
 export const setScale = (scale = initialScale) => ({
   m,
@@ -19,9 +10,10 @@ export const setScale = (scale = initialScale) => ({
   mt,
   mr,
   mb,
-  ml
+  ml,
+  gutter
 } = {}) => {
-  const getScaledProp = getProp(scale)
+  const getScaledProp = getNumberProp(scale)
 
   const result = assign({},
     getScaledProp('margin')(m),
@@ -32,7 +24,10 @@ export const setScale = (scale = initialScale) => ({
     getScaledProp('marginLeft')(ml),
     getScaledProp('marginRight')(mr),
     getScaledProp('marginLeft')(mx),
-    getScaledProp('marginRight')(mx)
+    getScaledProp('marginRight')(mx),
+
+    getScaledProp('marginLeft')(gutter, -1),
+    getScaledProp('marginRight')(gutter, -1)
   )
 
   return result
