@@ -11,24 +11,6 @@ test('returns an object', t => {
   t.is(typeof sx, 'object')
 })
 
-test('set display flex', t => {
-  const sx = flex({
-    flex: true
-  })
-  t.deepEqual(sx, {
-    display: 'flex'
-  })
-})
-
-test('set display inline-flex', t => {
-  const sx = flex({
-    inlineFlex: true
-  })
-  t.deepEqual(sx, {
-    display: 'inline-flex'
-  })
-})
-
 test('set flex-wrap wrap', t => {
   const sx = flex({
     wrap: true

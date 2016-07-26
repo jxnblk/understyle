@@ -146,17 +146,15 @@ Props:
 ```js
 import { flex } from 'understyle'
 const style = flex({
-  flex: true,
   align: 'center',
   justify: 'center'
 })
-// { display: 'flex', alignItems: 'center', justifyContent: 'center' }
+// { alignItems: 'center', justifyContent: 'center' }
 ```
 
 The flex options are a mix of booleans and strings to set various flexbox style properties.
 
 Props:
-- `flex` boolean - sets `display: 'flex'`
 - `wrap` boolean - sets `flexWrap: 'wrap'`
 - `column` boolean - sets `flexDirection: 'column'`
 - `align` string - sets `alignItems`

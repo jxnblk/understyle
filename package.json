@@ -1,6 +1,6 @@
 {
   "name": "understyle",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "Functional style utilities for authoring JavaScript style objects",
   "main": "dist/index.js",
   "scripts": {

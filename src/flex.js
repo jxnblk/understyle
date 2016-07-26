@@ -1,10 +1,7 @@
 
 import assign from 'object-assign'
-import display from './display'
 
 const flex = ({
-  flex,
-  inlineFlex,
   wrap,
   column,
   align,
@@ -14,7 +11,6 @@ const flex = ({
   order
 } = {}) => {
   const style = assign({},
-    display({ flex, inlineFlex }),
     wrap ? { flexWrap: 'wrap' } : null,
     column ? { flexDirection: 'column' } : null,
     align ? { alignItems: align } : null,
