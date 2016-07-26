@@ -2,7 +2,7 @@
 import assign from 'object-assign'
 import getProp from './get-prop'
 
-export const setScale = (scale = [
+export const initialScale = [
   0,
   8,
   16,
@@ -10,7 +10,9 @@ export const setScale = (scale = [
   48,
   64,
   96
-]) => ({
+]
+
+export const setScale = (scale = initialScale) => ({
   m,
   mx,
   my,
