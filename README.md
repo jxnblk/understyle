@@ -156,9 +156,9 @@ The flex options are a mix of booleans and strings to set various flexbox style 
 
 Props:
 - `wrap` boolean - sets `flexWrap: 'wrap'`
-- `column` boolean - sets `flexDirection: 'column'`
 - `align` string - sets `alignItems`
 - `justify` string - sets `justifyContent`
+- `flexColumn` boolean - sets `flexDirection: 'column'`
 - `flexAuto` boolean - sets `flex: '1 1 auto'`
 - `flexNone` boolean - sets `flex: 'none'`
 
