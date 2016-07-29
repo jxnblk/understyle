@@ -3,18 +3,20 @@ import assign from 'object-assign'
 
 const flex = ({
   wrap,
-  column,
   align,
   justify,
+  flexColumn,
   flexAuto,
   flexNone,
-  order
+  order,
+  // Deprecated in favor of flexColumn
+  column
 } = {}) => {
   const style = assign({},
     wrap ? { flexWrap: 'wrap' } : null,
-    column ? { flexDirection: 'column' } : null,
     align ? { alignItems: align } : null,
     justify ? { justifyContent: justify } : null,
+    (flexColumn || column) ? { flexDirection: 'column' } : null,
     flexAuto ? { flex: '1 1 auto' } : null,
     flexNone ? { flex: 'none' } : null,
     typeof order === 'number' ? { order } : null
