@@ -6,14 +6,18 @@ import { setScale as marginSetScale } from './margin'
 import { setScale as paddingSetScale } from './padding'
 import { setColumns } from './column'
 
-export const createUnderstyle = ({ scale, columns } = {}) => (props) => {
+export const createUnderstyle = ({
+  scale,
+  columns,
+  prefixed = true
+} = {}) => (props) => {
   const margin = marginSetScale(scale)
   const padding = paddingSetScale(scale)
   const column = setColumns(columns)
 
   const style = assign({},
-    display(props),
-    flex(props),
+    display(props, { prefixed }),
+    flex(props, { prefixed }),
     margin(props),
     padding(props),
     column(props)
