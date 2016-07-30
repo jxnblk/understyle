@@ -41,17 +41,17 @@ test('returns display table-cell', t => {
   t.deepEqual(sx, { display: 'table-cell' })
 })
 
-test('returns prefixed display flex', t => {
+test('returns display flex', t => {
   const sx = display({ flex: true })
   t.deepEqual(sx, {
-    display: '-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex'
+    display: 'flex'
   })
 })
 
-test('returns prefixed display inline-flex', t => {
+test('returns display inline-flex', t => {
   const sx = display({ inlineFlex: true })
   t.deepEqual(sx, {
-    display: '-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex'
+    display: 'inline-flex'
   })
 })
 

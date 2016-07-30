@@ -6,24 +6,6 @@ test('is a function', t => {
   t.is(typeof prefix, 'function')
 })
 
-test('prefixes display flex', t => {
-  const style = prefix({
-    display: 'flex'
-  })
-  t.deepEqual(style, {
-    display: '-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex'
-  })
-})
-
-test('prefixes display inline-flex', t => {
-  const style = prefix({
-    display: 'inline-flex'
-  })
-  t.deepEqual(style, {
-    display: '-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex'
-  })
-})
-
 test('prefixes flex property', t => {
   const style = prefix({
     flex: '1 1 auto'
