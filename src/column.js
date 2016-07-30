@@ -3,9 +3,8 @@ import assign from 'object-assign'
 import getProp from './get-prop'
 
 export const createWidthScale = length =>
-  Array.from({ length: length + 1 }).map((n, i) => `${i / length * 100}%`)
-
-// export const createBreakpoints = obj =>
+  Array.apply(null, Array(length + 1))
+    .map((n, i) => `${i / length * 100}%`)
 
 export const setColumns = (columns = 12) => ({
   col,
