@@ -3,20 +3,9 @@
 
 const getPrefixedValue = (prop, val) => {
   try {
-    let prefixed = val
     const div = document.createElement('div')
-
     div.style[prop] = val
-    if (div.style[prop] === val) {
-      return val
-    }
-
-    prefixed = '-webkit-' + val
-    div.style[prop] = prefixed
-
-    if (div.style[prop] === prefixed) {
-      return prefixed
-    }
+    return div.style[prop] === val ? val : '-webkit-' + val
   } catch (e) {
     return val
   }
