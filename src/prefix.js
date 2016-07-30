@@ -1,19 +1,25 @@
 
 // Small library-specific style prefixer for flexbox properties
 
-const vals = {
-  flex: [
-    '-webkit-box',
-    '-webkit-flex',
-    '-ms-flexbox',
-    'flex'
-  ].join(';display:'),
-  inlineFlex: [
-    '-webkit-inline-box',
-    '-webkit-inline-flex',
-    '-ms-inline-flexbox',
-    'inline-flex'
-  ].join(';display:')
+const getPrefixedValue = (prop, val) => {
+  try {
+    let prefixed = val
+    const div = document.createElement('div')
+
+    div.style[prop] = val
+    if (div.style[prop] === val) {
+      return val
+    }
+
+    prefixed = '-webkit-' + val
+    div.style[prop] = prefixed
+
+    if (div.style[prop] === prefixed) {
+      return prefixed
+    }
+  } catch (e) {
+    return val
+  }
 }
 
 const prefixProp = prop => prefix => prefix + prop.charAt(0).toUpperCase() + prop.slice(1)
@@ -45,17 +51,15 @@ const prefixer = (style = {}) => {
         prefixed[msKey] = val
         prefixed[key] = val
         break
+      default:
+        prefixed[key] = val
     }
 
     switch (val) {
       case 'flex':
-        prefixed[key] = vals.flex
-        break
       case 'inline-flex':
-        prefixed[key] = vals.inlineFlex
+        prefixed[key] = getPrefixedValue('display', val)
         break
-      default:
-        prefixed[key] = val
     }
   }
 
