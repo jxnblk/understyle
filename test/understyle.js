@@ -50,3 +50,17 @@ test('createUnderstyle sets custom scale and column count', t => {
   })
 })
 
+test('returns unprefixed styles when option is false', t => {
+  const __style = createUnderstyle({
+    prefixed: false
+  })
+  const sx = __style({
+    flex: true,
+    flexAuto: true
+  })
+  t.deepEqual(sx, {
+    display: 'flex',
+    flex: '1 1 auto'
+  })
+})
+
