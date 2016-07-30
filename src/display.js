@@ -1,5 +1,6 @@
 
 import assign from 'object-assign'
+import prefix from './prefix'
 
 const kebab = str => str.replace(/([A-Z])/g, g => '-' + g.toLowerCase())
 
@@ -12,6 +13,8 @@ const display = ({
   tableCell,
   flex,
   inlineFlex
+} = {}, {
+  prefixed = true
 } = {}) => {
   const props = {
     block,
@@ -32,11 +35,12 @@ const display = ({
   }
 
   const val = kebab(key)
+
   const style = assign({}, {
     display: val
   })
 
-  return style
+  return prefixed ? prefix(style) : style
 }
 
 export default display

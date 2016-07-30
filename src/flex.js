@@ -1,5 +1,6 @@
 
 import assign from 'object-assign'
+import prefix from './prefix'
 
 const flex = ({
   wrap,
@@ -11,6 +12,8 @@ const flex = ({
   order,
   // Deprecated in favor of flexColumn
   column
+} = {}, {
+  prefixed = true
 } = {}) => {
   const style = assign({},
     wrap ? { flexWrap: 'wrap' } : null,
@@ -22,7 +25,7 @@ const flex = ({
     typeof order === 'number' ? { order } : null
   )
 
-  return style
+  return prefixed ? prefix(style) : style
 }
 
 export default flex
