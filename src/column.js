@@ -6,8 +6,6 @@ export const createWidthScale = length =>
   Array.apply(null, Array(length + 1))
     .map((n, i) => `${i / length * 100}%`)
 
-// export const createBreakpoints = obj =>
-
 export const setColumns = (columns = 12) => ({
   col,
   xs,

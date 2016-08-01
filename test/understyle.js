@@ -17,6 +17,7 @@ test('combines style props', t => {
     flexNone: true
   })
   t.deepEqual(sx, {
+    boxSizing: 'border-box',
     margin: 0,
     marginBottom: 48,
     padding: 16,
@@ -44,6 +45,7 @@ test('createUnderstyle sets custom scale and column count', t => {
     col: 4
   })
   t.deepEqual(sx, {
+    boxSizing: 'border-box',
     margin: 6,
     padding: 12,
     width: '25%'
@@ -59,6 +61,7 @@ test('returns unprefixed styles when option is false', t => {
     flexAuto: true
   })
   t.deepEqual(sx, {
+    boxSizing: 'border-box',
     display: 'flex',
     flex: '1 1 auto'
   })
