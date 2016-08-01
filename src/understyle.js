@@ -16,6 +16,9 @@ export const createUnderstyle = ({
   const column = setColumns(columns)
 
   const style = assign({},
+    {
+      boxSizing: 'border-box'
+    },
     display(props, { prefixed }),
     flex(props, { prefixed }),
     margin(props),
