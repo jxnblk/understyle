@@ -26,8 +26,8 @@ export const setScale = (scale = initialScale) => ({
     getScaledProp('marginLeft')(mx),
     getScaledProp('marginRight')(mx),
 
-    getScaledProp('marginLeft')(gutter, -1),
-    getScaledProp('marginRight')(gutter, -1)
+    getScaledProp('marginLeft')(-gutter),
+    getScaledProp('marginRight')(-gutter)
   )
 
   return style

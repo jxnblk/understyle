@@ -93,6 +93,24 @@ initialScale.forEach((step, i) => {
   })
 })
 
+initialScale.forEach((step, i) => {
+  test(`adds negative margins ${i}`, t => {
+    const sx = margin({ mx: -i })
+    t.deepEqual(sx, {
+      marginLeft: -step,
+      marginRight: -step
+    })
+  })
+})
+
+test('returns margin auto', t => {
+  const sx = margin({ mx: 'auto' })
+  t.deepEqual(sx, {
+    marginLeft: 'auto',
+    marginRight: 'auto'
+  })
+})
+
 test('returns shorthand and full margin properties', t => {
   const sx = margin({ m: 2, mb: 4 })
   t.deepEqual(sx, {
