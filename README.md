@@ -80,7 +80,8 @@ const style = margin({ m: 1 })
 ```
 
 Each option should be a number from 0–6, which will return a value based on a spacing scale
-array `[0, 8, 16, 32, 48, 64, 96]`
+array `[0, 8, 16, 32, 48, 64, 96]`.
+Negative numbers return negative values, and `'auto'` will return `margin: auto`.
 
 Props:
 - `m`: `margin`
