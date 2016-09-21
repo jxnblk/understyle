@@ -22,9 +22,9 @@ test('returns an object based on scale, property, and value', t => {
   })
 })
 
-test('supports multipliers', t => {
+test('supports negative numbers', t => {
   const getMargin = getNumberProp([0, 4, 8])('margin')
-  const sx = getMargin(1, -1)
+  const sx = getMargin(-1)
   t.deepEqual(sx, {
     margin: -4
   })
