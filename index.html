@@ -46,7 +46,8 @@
 <pre><span class="hljs-keyword">import</span> { margin } <span class="hljs-keyword">from</span> <span class="hljs-string">'understyle'</span>
 <span class="hljs-keyword">const</span> style = margin({ m: <span class="hljs-number">1</span> })
 <span class="hljs-comment">// { margin: 8 }</span></pre><p>Each option should be a number from 0–6, which will return a value based on a spacing scale
-array <code>[0, 8, 16, 32, 48, 64, 96]</code></p>
+array <code>[0, 8, 16, 32, 48, 64, 96]</code>.
+Negative numbers return negative values, and <code>'auto'</code> will return <code>margin: auto</code>.</p>
 <p>Props:</p>
 <ul>
 <li><code>m</code>: <code>margin</code></li>
