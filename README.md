@@ -6,6 +6,15 @@ Functional style utilities for authoring JavaScript style objects
 [![Build Status](https://travis-ci.org/jxnblk/understyle.svg?branch=master)](https://travis-ci.org/jxnblk/understyle)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
+---
+v2
+
+- [ ] width
+- [ ] display
+- [ ] size
+- [ ] responsive props ?
+- [ ] convert shorthand
+---
 
 ```sh
 npm i understyle
