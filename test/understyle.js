@@ -1,7 +1,7 @@
 
 import test from 'ava'
 import _style from '../src/understyle'
-import { breakpoints } from '../src/default-config'
+import { breakpoints, colors } from '../src/default-config'
 
 test('returns an object', t => {
   const sx = _style()
@@ -53,3 +53,21 @@ test('handles responsive array props', t => {
     }
   })
 })
+
+test('handles shorthand props', t => {
+  const sx = _style({
+    m0: true,
+    mb2: true,
+    blue: true
+  })
+  t.deepEqual(sx, {
+    boxSizing: 'border-box',
+    margin: 0,
+    marginBottom: 16,
+    color: colors.blue
+  })
+})
+
+test.todo('understyle returns a function')
+test.todo('understyle sets custom config')
+

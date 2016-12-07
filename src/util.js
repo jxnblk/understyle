@@ -5,11 +5,20 @@ export const objToArr = (obj) => Object.keys(obj).map(key => ({ key, value: obj[
 
 export const colorKeyMapper = ({ key, value }) => {
   if (Array.isArray(value)) {
-    return value.map((val, i) => ({
+    const scale = value.map((val, i) => ({
       key: key + i,
       value: val
     }))
+
+    return [
+      {
+        key: key,
+        value: scale[5].value
+      },
+      ...scale
+    ]
   }
+
   return {
     key, value
   }
