@@ -1,4 +1,5 @@
 
+import assign from 'object-assign'
 import parseArrayValue from './parse-array-value'
 
 const display = val => ({ display: val })
@@ -29,6 +30,7 @@ const fontSize = scale => val => ({
 })
 
 const getColorProp = (key) => (colors) => (val) => {
+  if (!val) return null
   const color = colors[val] || val
   return { [key]: color }
 }
@@ -68,6 +70,8 @@ const radii = (R) => (val) => {
 }
 
 const parseStyle = (config) => (key) => (value) => {
+  if (value === null) return null
+
   switch (key) {
     case 'display':
       return display(value)
