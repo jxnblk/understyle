@@ -14,6 +14,9 @@ v2
 - [x] fontSize
 - [x] responsive props ?
 - [x] convert shorthand
+- [ ] flexbox
+- [ ] prefix
+- [ ] tests
 ---
 
 ```sh

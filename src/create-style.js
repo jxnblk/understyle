@@ -42,7 +42,7 @@ const border = (key, val) => {
   if (val === false) {
     return { [key]: 0 }
   }
-  const size = typeof val === 'number' ? size : 1
+  const size = typeof val === 'number' ? val : 1
   return {
     [key]: `${size}px solid`
   }

@@ -11,7 +11,7 @@ const convert = (config) => (rawProps) => {
 
 const MP_REG = /^[mp][trblxy]?-?\d$/
 const FS_REG = /^[h]\d$/
-const ALIGN_REG = /^(left|center|right)$/
+const ALIGN_REG = /^(left|center|right|justify)$/
 
 const parseProp = (config) => ({ key, value }) => {
   const { colors } = config
