@@ -9,11 +9,11 @@ Functional style utilities for authoring JavaScript style objects
 ---
 v2
 
-- [ ] width
-- [ ] display
-- [ ] size
-- [ ] responsive props ?
-- [ ] convert shorthand
+- [x] width
+- [x] display
+- [x] fontSize
+- [x] responsive props ?
+- [x] convert shorthand
 ---
 
 ```sh

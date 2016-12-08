@@ -6,7 +6,7 @@ export const objToArr = (obj) => Object.keys(obj).map(key => ({ key, value: obj[
 export const colorKeyMapper = ({ key, value }) => {
   if (Array.isArray(value)) {
     const scale = value.map((val, i) => ({
-      key: key + i,
+      key: '' + key + i,
       value: val
     }))
 

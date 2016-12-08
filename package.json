@@ -2,7 +2,7 @@
   "name": "understyle",
   "version": "2.0.0-b0",
   "description": "Functional style utilities for authoring JavaScript style objects",
-  "main": "dist/understyle.js",
+  "main": "dist/index.js",
   "scripts": {
     "prepublish": "mkdir -p dist && babel src --out-dir dist",
     "test": "ava -v"
@@ -26,7 +26,7 @@
   "dependencies": {
     "deepmerge": "^1.3.1",
     "object-assign": "^4.1.0",
-    "palx": "^1.0.1"
+    "palx": "^1.0.2"
   },
   "ava": {
     "require": [

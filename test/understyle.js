@@ -1,6 +1,6 @@
 
 import test from 'ava'
-import _style from '../src/understyle'
+import _style, { understyle } from '../src/understyle'
 import { breakpoints, colors } from '../src/default-config'
 
 test('returns an object', t => {
@@ -68,6 +68,25 @@ test('handles shorthand props', t => {
   })
 })
 
-test.todo('understyle returns a function')
-test.todo('understyle sets custom config')
+test('understyle returns a function', t => {
+  const s = understyle({})
+  t.is(typeof s, 'function')
+})
+
+test('understyle sets custom config', t => {
+  const s = understyle({
+    scale: [
+      0, 12, 24, 48, 96
+    ]
+  })
+  const sx = s({
+    m: 1,
+    p: 2
+  })
+  t.deepEqual(sx, {
+    boxSizing: 'border-box',
+    margin: 12,
+    padding: 24
+  })
+})
 

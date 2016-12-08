@@ -11,6 +11,7 @@ const convert = (config) => (rawProps) => {
 
 const MP_REG = /^[mp][trblxy]?-?\d$/
 const FS_REG = /^[h]\d$/
+const ALIGN_REG = /^(left|center|right)$/
 
 const parseProp = (config) => ({ key, value }) => {
   const { colors } = config
@@ -27,6 +28,13 @@ const parseProp = (config) => ({ key, value }) => {
     const value = parseInt(key.replace(/^h/, ''))
     return {
       key: 'fontSize', value
+    }
+  }
+
+  if (ALIGN_REG.test(key)) {
+    return {
+      key: 'align',
+      value: key
     }
   }
 
@@ -47,7 +55,7 @@ const parseProp = (config) => ({ key, value }) => {
   return { key, value }
 }
 
-const parseNumberValue = key => {
+export const parseNumberValue = key => {
   const [ num ] = key.match(/\d/)
   const isNegative = /-/.test(key)
   const [ prop ] = key.match(/^[a-z]+/)
@@ -61,7 +69,7 @@ const parseNumberValue = key => {
   }
 }
 
-const isColor = colors => key => {
+export const isColor = colors => key => {
   const name = key.replace(/^(bg|border)/, '').toLowerCase()
   return !!colors[name]
 }

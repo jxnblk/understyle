@@ -80,6 +80,11 @@ const parseStyle = (config) => (key) => (value) => {
     case 'fontSize':
       return fontSize(config.typeScale)(value)
 
+    case 'align':
+      return { textAlign: value }
+    case 'bold':
+      return { fontWeight: config.bold }
+
     case 'p':
       return getScaleProp(config.scale)('padding')(value)
     case 'pt':

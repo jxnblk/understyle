@@ -20,14 +20,18 @@ const blue = '#07c'
 
 export const colors = flattenColors(palx(blue))
 
+colors.white = '#fff'
+
 export const borderRadius = 2
+export const bold = 700
 
 const defaultConfig = {
   breakpoints,
   scale,
   typeScale,
   colors,
-  borderRadius
+  borderRadius,
+  bold
 }
 
 export default defaultConfig
