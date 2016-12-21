@@ -203,6 +203,31 @@ const tests = [
     input:    { rounded: 'left' },
     expected: { borderRadius: '2px 0 0 2px' }
   },
+  // Flexbox
+  {
+    input:    { flexWrap: 'wrap' },
+    expected: { flexWrap: 'wrap' }
+  },
+  {
+    input:    { alignItems: 'center' },
+    expected: { alignItems: 'center' }
+  },
+  {
+    input:    { justifyContent: 'space-between' },
+    expected: { justifyContent: 'space-between' }
+  },
+  {
+    input:    { flexDirection: 'column' },
+    expected: { flexDirection: 'column' }
+  },
+  {
+    input:    { flexAuto: true },
+    expected: { flex: '1 1 auto' }
+  },
+  {
+    input:    { flexNone: true },
+    expected: { flex: 'none' }
+  },
 
   {
     input:    { width: [ 1, 1/2, 1/4 ] },
