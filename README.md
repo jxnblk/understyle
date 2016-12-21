@@ -1,5 +1,5 @@
 
-# understyle
+# _understyle
 
 Functional style utilities for authoring JavaScript style objects
 
@@ -25,7 +25,7 @@ const style = _style({
 ### Usage in React, etc.
 
 Understyle is intended for use in functional component-based UI systems, like React.
-This can be used in any framework and for either inline styles or
+It can be used in any framework and for either inline styles or
 with any CSS-in-JS library.
 
 ```js
@@ -69,12 +69,12 @@ _style({ display: 'block' })
 ### Width
 
 The `width` prop accepts number values.
-Any number large than 1 is returned as a number, to be handled in React inline styles or other CSS-in-JS solutions.
+Any number larger than 1 is returned as a number, to be handled with React inline styles or other CSS-in-JS solutions.
 Any number between 0 and 1 will become a percentage width.
 
 ```js
 _style({ width: 1 / 2 }) // { width: '50%' }
-_style({ width: 1 }) // { width: '100%' }
+_style({ width: 1 })     // { width: '100%' }
 _style({ width: 64 })    // { width: 64 }
 ```
 
@@ -105,6 +105,7 @@ _style({
   align: 'center',  // textAlign: 'center'
   bold: true,       // fontWeight: 'bold'
   caps: true,       // textTransform: 'uppercase', letterSpacing: '.1em'
+})
 ```
 
 Font size also accepts numbers representing steps on the configured type scale, for any number below 7
@@ -156,13 +157,13 @@ _style({ borderTop: true })
 // borderTop: '1px solid'
 
 _style({ borderRight: true })
-// borderTop: '1px solid'
+// borderRight: '1px solid'
 
 _style({ borderBottom: true })
-// borderTop: '1px solid'
+// borderBottom: '1px solid'
 
 _style({ borderLeft: true })
-// borderTop: '1px solid'
+// borderLeft: '1px solid'
 ```
 
 ### Border Radius
@@ -283,102 +284,5 @@ The following boolean keys can be passed to understyle.
 - `bg<COLOR>` - background color - e.g. `bgRed`
 - `border<COLOR>` - border color - e.g. `borderRed`
 
-<!--
-## Functions
+[MIT License](LICENSE.md)
 
-Each function accepts its own unique set of shorthand options to create style objects
-
-### `margin`
-
-```js
-import { margin } from 'understyle'
-const style = margin({ m: 1 })
-// { margin: 8 }
-```
-
-Each option should be a number from 0–6, which will return a value based on a spacing scale
-array `[0, 8, 16, 32, 48, 64, 96]`.
-Negative numbers return negative values, and `'auto'` will return `margin: auto`.
-
-Props:
-- `m`: `margin`
-- `mt`: `marginTop`
-- `mr`: `marginRight`
-- `mb`: `marginBottom`
-- `ml`: `marginLeft`
-- `mx`: `marginLeft` & `marginRight`
-- `my`: `marginTop` & `marginBottom`
-- `gutter`: negative `marginLeft` & `marginRight`
-
-### `padding`
-
-Padding uses the same spacing scale array
-
-```js
-import { padding } from 'understyle'
-const style = padding({ p: 1 })
-// { padding: 8 }
-```
-
-Props:
-- `p`: `padding`
-- `pt`: `paddingTop`
-- `pr`: `paddingRight`
-- `pb`: `paddingBottom`
-- `pl`: `paddingLeft`
-- `px`: `paddingLeft` & `paddingRight`
-- `py`: `paddingTop` & `paddingBottom`
-
-### `column`
-
-```js
-import { column } from 'understyle'
-const style = column({ col: 6 })
-// { width: '50%' }
-```
-
-The `col` option should be a number from 1–12 to return a percentage-based width based on a 12 column grid.
-
-### `display`
-
-```js
-import { display } from 'understyle'
-const style = display({ inlineBlock: true })
-// { display: 'inline-block' }
-```
-
-Each display option should be a boolean.
-
-Props:
-- `block`
-- `inlineBlock`
-- `inline`
-- `table`
-- `tableRow`
-- `tableCell`
-- `flex`
-- `inlineFlex`
-
-### `flex`
-
-```js
-import { flex } from 'understyle'
-const style = flex({
-  align: 'center',
-  justify: 'center'
-})
-// { alignItems: 'center', justifyContent: 'center' }
-```
-
-The flex options are a mix of booleans and strings to set various flexbox style properties.
-
-Props:
-- `wrap` boolean - sets `flexWrap: 'wrap'`
-- `align` string - sets `alignItems`
-- `justify` string - sets `justifyContent`
-- `flexColumn` boolean - sets `flexDirection: 'column'`
-- `flexAuto` boolean - sets `flex: '1 1 auto'`
-- `flexNone` boolean - sets `flex: 'none'`
--->
-
-MIT License
