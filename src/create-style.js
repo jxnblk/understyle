@@ -73,10 +73,13 @@ const parseStyle = (config) => (key) => (value) => {
   if (value === null) return null
 
   switch (key) {
+    // Layout
     case 'display':
       return display(value)
     case 'width':
       return width(value)
+
+    // Typography
     case 'fontSize':
       return fontSize(config.typeScale)(value)
 
@@ -90,6 +93,7 @@ const parseStyle = (config) => (key) => (value) => {
         letterSpacing: '.1em'
       }
 
+    // Padding
     case 'p':
       return getScaleProp(config.scale)('padding')(value)
     case 'pt':
@@ -111,6 +115,7 @@ const parseStyle = (config) => (key) => (value) => {
         getScaleProp(config.scale)('paddingBottom')(value)
       )
 
+    // Margin
     case 'm':
       return getScaleProp(config.scale)('margin')(value)
     case 'mt':
@@ -132,6 +137,21 @@ const parseStyle = (config) => (key) => (value) => {
         getScaleProp(config.scale)('marginBottom')(value)
       )
 
+    // Flexbox properties
+    case 'flexWrap':
+      return { flexWrap: value }
+    case 'alignItems':
+      return { alignItems: value }
+    case 'justifyContent':
+      return { justifyContent: value }
+    case 'flexDirection':
+      return { flexDirection: value }
+    case 'flexAuto':
+      return { flex: '1 1 auto' }
+    case 'flexNone':
+      return { flex: 'none' }
+
+    // Color properties
     case 'color':
       return color(config.colors)(value)
     case 'backgroundColor':
@@ -139,6 +159,7 @@ const parseStyle = (config) => (key) => (value) => {
     case 'borderColor':
       return borderColor(config.colors)(value)
 
+    // Border properties
     case 'border':
       return border('border', value)
     case 'borderTop':
