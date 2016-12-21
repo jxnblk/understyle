@@ -19,25 +19,14 @@ const style = _style({
   m: 2,
   flex: true
 })
-
 // { margin: 16, display: 'flex' }
 ```
 
-```js
-// Individual modules
-import { margin, padding } from 'understyle'
-
-const style = {
-  ...margin({ m: 2 }),
-  ...padding({ p: 2 })
-}
-
-// { margin: 16, padding: 16 }
-```
-
-### Usage in React
+### Usage in React, etc.
 
 Understyle is intended for use in functional component-based UI systems, like React.
+This can be used in any framework and for either inline styles or
+with any CSS-in-JS library.
 
 ```js
 // Example component
@@ -116,6 +105,13 @@ _style({
   align: 'center',  // textAlign: 'center'
   bold: true,       // fontWeight: 'bold'
   caps: true,       // textTransform: 'uppercase', letterSpacing: '.1em'
+```
+
+Font size also accepts numbers representing steps on the configured type scale, for any number below 7
+
+```js
+_style({ fontSize: 1 })
+// fontSize: 48
 ```
 
 ### Flexbox
@@ -228,7 +224,16 @@ This helps create a succinct syntax for use in React components.
 <Box width={[ 1, 1/2, 1/3, 1/4 ]} />
 ```
 
-Null values can be passed to the array to skip breakpoints.
+Arrays work for any understyle property,
+and null values can be passed to the array to skip breakpoints.
+
+```js
+_style({
+  margin: [ 0, null, 16, 32 ],
+  padding: [ null, null, 16, 32 ],
+  border: [ null, null, true ]
+})
+```
 
 
 ### Shorthand Props
