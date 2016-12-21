@@ -84,6 +84,11 @@ const parseStyle = (config) => (key) => (value) => {
       return { textAlign: value }
     case 'bold':
       return { fontWeight: config.bold }
+    case 'caps':
+      return {
+        textTransform: 'uppercase',
+        letterSpacing: '.1em'
+      }
 
     case 'p':
       return getScaleProp(config.scale)('padding')(value)

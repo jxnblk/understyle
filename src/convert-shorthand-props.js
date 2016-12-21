@@ -1,5 +1,5 @@
 
-import { objToArr, toObj } from './util'
+import { objToArr, toObj, hyphenate } from './util'
 
 const convert = (config) => (rawProps) => {
   const props = objToArr(rawProps)
@@ -12,6 +12,7 @@ const convert = (config) => (rawProps) => {
 const MP_REG = /^[mp][trblxy]?-?\d$/
 const FS_REG = /^[h]\d$/
 const ALIGN_REG = /^(left|center|right|justify)$/
+const DISPLAY_REG = /^(block|inlineBlock|inline|table|tableRow|tableCell|flex|inlineFlex)$/
 
 const parseProp = (config) => ({ key, value }) => {
   const { colors } = config
@@ -38,18 +39,26 @@ const parseProp = (config) => ({ key, value }) => {
     }
   }
 
+  if (DISPLAY_REG.test(key)) {
+    return { display: hyphenate(key) }
+  }
+
   if (isColor(colors)(key)) {
-    const value = key.replace(/^(bg|border)/, '').toLowerCase()
+    const colorValue = key.replace(/^(bg|border)/, '').toLowerCase()
 
     if (/^bg/.test(key)) {
-      return { key: 'backgroundColor', value }
+      return { key: 'backgroundColor', value: colorValue }
     }
 
     if (/^border/.test(key)) {
-      return { key: 'borderColor', value }
+      return { key: 'borderColor', value: colorValue }
     }
 
-    return { key: 'color', value }
+    return { key: 'color', value: colorValue }
+  }
+
+  if (key === 'bg') {
+    return { key: 'backgroundColor', value }
   }
 
   return { key, value }
