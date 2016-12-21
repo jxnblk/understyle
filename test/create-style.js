@@ -65,12 +65,20 @@ const tests = [
   },
 
   {
+    input:    { padding: 0, },
+    expected: { padding: 0 }
+  },
+  {
     input:    { p: 0, },
     expected: { padding: 0 }
   },
   {
     input:    { p: 1, },
     expected: { padding: 8 }
+  },
+  {
+    input:    { paddingX: 2, },
+    expected: { paddingLeft: 16, paddingRight: 16 }
   },
   {
     input:    { px: 2, },
@@ -98,12 +106,20 @@ const tests = [
   },
 
   {
+    input:    { margin: 0, },
+    expected: { margin: 0 }
+  },
+  {
     input:    { m: 0, },
     expected: { margin: 0 }
   },
   {
     input:    { m: 1, },
     expected: { margin: 8 }
+  },
+  {
+    input:    { marginLeft: 2, },
+    expected: { marginLeft: 16 }
   },
   {
     input:    { mx: 2, },

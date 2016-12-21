@@ -80,19 +80,35 @@ _style({ width: 64 })    // { width: 64 }
 
 ### Margin
 
+Margin props are set based on a spacing scale for numbers 1–4.
+Any number above 4 will return the raw number value.
+
+```js
+_style({
+  margin: 0,        // margin: 0
+  marginBottom: 3,  // marginBottom: 32
+  marginX: 12       // marginLeft: 12, marginRight: 12
+})
+```
+
+Shorthand props are also available.
+
 ```js
 _style({
   m: 0,   // margin: 0
-  mb: 32, // marginBottom: 32
-  mx: 16  // marginLeft: 16, marginRight: 16
+  mb: 3, // marginBottom: 32
+  mx: 12 // marginLeft: 12, marginRight: 12,
 })
 ```
 
 ### Padding
 
+Padding also supports longform and shorthand keys.
+
 ```js
 _style({
   p: 0,   // padding: 0
+  paddingLeft: 2, // paddingLeft: 16
   py: 48  // paddingTop: 48, paddingBottom: 48
 })
 ```

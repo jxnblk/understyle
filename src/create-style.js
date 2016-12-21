@@ -95,21 +95,28 @@ const parseStyle = (config) => (key) => (value) => {
 
     // Padding
     case 'p':
+    case 'padding':
       return getScaleProp(config.scale)('padding')(value)
     case 'pt':
+    case 'paddingTop':
       return getScaleProp(config.scale)('paddingTop')(value)
     case 'pr':
+    case 'paddingRight':
       return getScaleProp(config.scale)('paddingRight')(value)
     case 'pb':
+    case 'paddingBottom':
       return getScaleProp(config.scale)('paddingBottom')(value)
     case 'pl':
+    case 'paddingLeft':
       return getScaleProp(config.scale)('paddingLeft')(value)
     case 'px':
+    case 'paddingX':
       return assign({},
         getScaleProp(config.scale)('paddingLeft')(value),
         getScaleProp(config.scale)('paddingRight')(value)
       )
     case 'py':
+    case 'paddingY':
       return assign({},
         getScaleProp(config.scale)('paddingTop')(value),
         getScaleProp(config.scale)('paddingBottom')(value)
@@ -117,21 +124,28 @@ const parseStyle = (config) => (key) => (value) => {
 
     // Margin
     case 'm':
+    case 'margin':
       return getScaleProp(config.scale)('margin')(value)
     case 'mt':
+    case 'marginTop':
       return getScaleProp(config.scale)('marginTop')(value)
     case 'mr':
+    case 'marginRight':
       return getScaleProp(config.scale)('marginRight')(value)
     case 'mb':
+    case 'marginBottom':
       return getScaleProp(config.scale)('marginBottom')(value)
     case 'ml':
+    case 'marginLeft':
       return getScaleProp(config.scale)('marginLeft')(value)
     case 'mx':
+    case 'marginX':
       return assign({},
         getScaleProp(config.scale)('marginLeft')(value),
         getScaleProp(config.scale)('marginRight')(value)
       )
     case 'my':
+    case 'marginY':
       return assign({},
         getScaleProp(config.scale)('marginTop')(value),
         getScaleProp(config.scale)('marginBottom')(value)
