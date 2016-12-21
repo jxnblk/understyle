@@ -7,7 +7,7 @@ import convertShorthandProps from './convert-shorthand-props'
 import { objToArr, flattenColors } from './util'
 import propTypes from './prop-types'
 
-export const understyle = (options = {}) => {
+export const createUnderstyle = (options = {}) => {
   const colors = options.color
     ? { colors: flattenColors(palx(color)) }
     : null
@@ -30,7 +30,7 @@ export const understyle = (options = {}) => {
   }
 }
 
-const _style = (props, options) => understyle(options)(props)
+const _style = (props, options) => createUnderstyle(options)(props)
 
 export default _style
 
