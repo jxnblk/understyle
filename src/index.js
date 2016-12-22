@@ -1,5 +1,6 @@
 
 export { default as default } from './understyle'
+export { createUnderstyle } from './understyle'
 
 export { default as defaultConfig } from './default-config'
 export { default as filterProps } from './filter-props'
