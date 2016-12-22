@@ -1,35 +1,36 @@
 
 import assign from 'object-assign'
-import display from './display'
-import flex from './flex'
-import { setScale as marginSetScale } from './margin'
-import { setScale as paddingSetScale } from './padding'
-import { setColumns } from './column'
+import merge from 'deepmerge'
+import defaultConfig from './default-config'
+import createStyle from './create-style'
+import convertShorthandProps from './convert-shorthand-props'
+import { objToArr, flattenColors } from './util'
+import propTypes from './prop-types'
 
-export const createUnderstyle = ({
-  scale,
-  columns,
-  prefixed = true
-} = {}) => (props) => {
-  const margin = marginSetScale(scale)
-  const padding = paddingSetScale(scale)
-  const column = setColumns(columns)
+export const createUnderstyle = (options = {}) => {
+  const colors = options.color
+    ? { colors: flattenColors(palx(color)) }
+    : null
+  const config = assign({}, defaultConfig, options, colors)
 
-  const style = assign({},
-    {
-      boxSizing: 'border-box'
-    },
-    display(props, { prefixed }),
-    flex(props, { prefixed }),
-    margin(props),
-    padding(props),
-    column(props)
-  )
+  return (rawProps = {}) => {
+    const parsedProps = convertShorthandProps(config)(rawProps)
+    const styles = objToArr(parsedProps)
+      .filter(prop => propTypes[prop.key])
+      .map(createStyle(config))
+      .filter(style => style !== null)
 
-  return style
+    const style = merge.all([
+      {},
+      { boxSizing: 'border-box' },
+      ...styles
+    ])
+
+    return style
+  }
 }
 
-const understyle = createUnderstyle()
+const _style = (props, options) => createUnderstyle(options)(props)
 
-export default understyle
+export default _style
 

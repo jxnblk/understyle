@@ -1,69 +1,92 @@
 
 import test from 'ava'
-import _style, { createUnderstyle } from '../src'
+import _style, { createUnderstyle } from '../src/understyle'
+import { breakpoints, colors } from '../src/default-config'
 
-test('returns a style object', t => {
+test('returns an object', t => {
   const sx = _style()
   t.is(typeof sx, 'object')
 })
 
+test('returns a style object', t => {
+  const sx = _style({
+    m: 0
+  })
+  t.deepEqual(sx, {
+    boxSizing: 'border-box',
+    margin: 0
+  })
+})
+
 test('combines style props', t => {
   const sx = _style({
-    m: 0,
-    mb: 4,
-    p: 2,
-    col: 6,
-    inlineBlock: true,
-    flexNone: true
+    m: 1,
+    mb: 2,
+    p: 3,
+    width: 1/2,
+    display: 'flex'
+  })
+  t.deepEqual(sx, {
+    boxSizing: 'border-box',
+    margin: 8,
+    marginBottom: 16,
+    padding: 32,
+    width: '50%',
+    display: 'flex'
+  })
+})
+
+test('handles responsive array props', t => {
+  const sx = _style({
+    width: [
+      1, 1/2, 1/4
+    ]
+  })
+  t.deepEqual(sx, {
+    boxSizing: 'border-box',
+    width: '100%',
+    [breakpoints[0]]: {
+      width: '50%'
+    },
+    [breakpoints[1]]: {
+      width: '25%'
+    }
+  })
+})
+
+test('handles shorthand props', t => {
+  const sx = _style({
+    m0: true,
+    mb2: true,
+    blue: true
   })
   t.deepEqual(sx, {
     boxSizing: 'border-box',
     margin: 0,
-    marginBottom: 48,
-    padding: 16,
-    width: '50%',
-    display: 'inline-block',
-    WebkitFlex: 'none',
-    msFlex: 'none',
-    flex: 'none'
+    marginBottom: 16,
+    color: colors.blue
   })
 })
 
 test('createUnderstyle returns a function', t => {
-  const customUnderstyle = createUnderstyle()
-  t.is(typeof customUnderstyle, 'function')
+  const s = createUnderstyle({})
+  t.is(typeof s, 'function')
 })
 
-test('createUnderstyle sets custom scale and column count', t => {
-  const __style = createUnderstyle({
-    scale: [0, 6, 12, 18, 24, 30, 36],
-    columns: 16
+test('createUnderstyle sets custom config', t => {
+  const s = createUnderstyle({
+    scale: [
+      0, 12, 24, 48, 96
+    ]
   })
-  const sx = __style({
+  const sx = s({
     m: 1,
-    p: 2,
-    col: 4
+    p: 2
   })
   t.deepEqual(sx, {
     boxSizing: 'border-box',
-    margin: 6,
-    padding: 12,
-    width: '25%'
-  })
-})
-
-test('returns unprefixed styles when option is false', t => {
-  const __style = createUnderstyle({
-    prefixed: false
-  })
-  const sx = __style({
-    flex: true,
-    flexAuto: true
-  })
-  t.deepEqual(sx, {
-    boxSizing: 'border-box',
-    display: 'flex',
-    flex: '1 1 auto'
+    margin: 12,
+    padding: 24
   })
 })
 
