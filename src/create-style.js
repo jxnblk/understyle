@@ -12,16 +12,17 @@ const width = val => {
 }
 
 const getScaleProp = scale => key => val => {
+  if (val === null) return null
   if (typeof val === 'string') {
     return { [key]: val }
   }
   const multiplier = val < 0 ? -1 : 1
   val = Math.abs(val)
 
-  if (typeof scale[val] === 'undefined') return null
+  const numVal = scale[val] || val
 
   return {
-    [key]: scale[val] * multiplier
+    [key]: numVal * multiplier
   }
 }
 
@@ -169,6 +170,7 @@ const parseStyle = (config) => (key) => (value) => {
     case 'color':
       return color(config.colors)(value)
     case 'backgroundColor':
+    case 'bg':
       return backgroundColor(config.colors)(value)
     case 'borderColor':
       return borderColor(config.colors)(value)

@@ -57,10 +57,6 @@ const parseProp = (config) => ({ key, value }) => {
     return { key: 'color', value: colorValue }
   }
 
-  if (key === 'bg') {
-    return { key: 'backgroundColor', value }
-  }
-
   return { key, value }
 }
 

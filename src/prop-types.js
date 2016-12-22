@@ -57,6 +57,7 @@ const propTypes = {
   borderLeft: string,
   rounded: string,
   color: string,
+  bg: string,
   backgroundColor: string,
   borderColor: string,
 }
