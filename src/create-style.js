@@ -65,6 +65,8 @@ const radii = (R) => (val) => {
       return { borderRadius: rx(0, 0, R, R) }
     case 'left':
       return { borderRadius: rx(R, 0, 0, R) }
+    case 'circle':
+      return { borderRadius: '50%' }
     default:
       return null
   }
@@ -198,4 +200,3 @@ const createStyle = (config) => ({ key, value }) => {
 }
 
 export default createStyle
-

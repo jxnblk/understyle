@@ -219,6 +219,10 @@ const tests = [
     input:    { rounded: 'left' },
     expected: { borderRadius: '2px 0 0 2px' }
   },
+  {
+    input:    { rounded: 'circle' },
+    expected: { borderRadius: '50%' }
+  },
   // Flexbox
   {
     input:    { flexWrap: 'wrap' },
@@ -263,5 +267,3 @@ tests.forEach(({ input, expected }) => {
   const obj = keyval(input)
   test(`parses ${JSON.stringify(obj)}`, proptest, obj, expected)
 })
-
-

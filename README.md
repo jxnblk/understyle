@@ -202,6 +202,9 @@ _style({ rounded: 'bottom' })
 
 _style({ rounded: 'left' })
 // borderRadius: '2px 0 0 2px'
+
+_style({ rounded: 'circle' })
+// borderRadius: '50%'
 ```
 
 ### Responsive Styles
@@ -301,4 +304,3 @@ The following boolean keys can be passed to understyle.
 - `border<COLOR>` - border color - e.g. `borderRed`
 
 [MIT License](LICENSE.md)
-
