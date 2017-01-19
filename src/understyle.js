@@ -1,4 +1,5 @@
 
+import palx from 'palx'
 import assign from 'object-assign'
 import merge from 'deepmerge'
 import defaultConfig from './default-config'
@@ -9,7 +10,7 @@ import propTypes from './prop-types'
 
 export const createUnderstyle = (options = {}) => {
   const colors = options.color
-    ? { colors: flattenColors(palx(color)) }
+    ? { colors: flattenColors(palx(options.color)) }
     : null
   const config = assign({}, defaultConfig, options, colors)
 
@@ -33,4 +34,3 @@ export const createUnderstyle = (options = {}) => {
 const _style = (props, options) => createUnderstyle(options)(props)
 
 export default _style
-

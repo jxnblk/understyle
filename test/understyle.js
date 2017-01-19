@@ -90,3 +90,9 @@ test('createUnderstyle sets custom config', t => {
   })
 })
 
+test('createUnderstyle generates a palette', t => {
+  const s = createUnderstyle({
+    color: '#000'
+  })
+  t.is(typeof s, 'function')
+})
