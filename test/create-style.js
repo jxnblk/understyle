@@ -33,6 +33,11 @@ test('removes null values', t => {
   t.is(style, null)
 })
 
+test('removes undefined values', t => {
+  const style = parse({ key: 'm', value: undefined })
+  t.is(style, null)
+})
+
 const proptest = (t, input, expected) => {
   const style = parse(input)
   t.deepEqual(style, expected)
@@ -263,5 +268,3 @@ tests.forEach(({ input, expected }) => {
   const obj = keyval(input)
   test(`parses ${JSON.stringify(obj)}`, proptest, obj, expected)
 })
-
-

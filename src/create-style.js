@@ -71,7 +71,7 @@ const radii = (R) => (val) => {
 }
 
 const parseStyle = (config) => (key) => (value) => {
-  if (value === null) return null
+  if (value === null || value === undefined) return null
 
   switch (key) {
     // Layout
@@ -198,4 +198,3 @@ const createStyle = (config) => ({ key, value }) => {
 }
 
 export default createStyle
-
