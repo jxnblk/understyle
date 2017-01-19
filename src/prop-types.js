@@ -10,6 +10,7 @@ const propTypes = {
   align: string,
   bold: bool,
   caps: bool,
+  italic: bool,
 
   margin: number,
   marginTop: number,
@@ -63,4 +64,3 @@ const propTypes = {
 }
 
 export default propTypes
-

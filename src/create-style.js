@@ -93,6 +93,8 @@ const parseStyle = (config) => (key) => (value) => {
         textTransform: 'uppercase',
         letterSpacing: '.1em'
       }
+    case 'italic':
+      return { fontStyle: 'italic' }
 
     // Padding
     case 'p':
@@ -198,4 +200,3 @@ const createStyle = (config) => ({ key, value }) => {
 }
 
 export default createStyle
-

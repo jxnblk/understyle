@@ -24,6 +24,7 @@ const falsey = [
   'fontSize',
   'align',
   'bold',
+  'italic',
   'left',
   'center',
   'right',
@@ -60,4 +61,3 @@ truthy.forEach(input => {
     t.is(filterProps(config)(input), true)
   })
 })
-

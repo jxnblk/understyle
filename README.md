@@ -120,6 +120,7 @@ _style({
   fontSize: 16,     // fontSize: 16
   align: 'center',  // textAlign: 'center'
   bold: true,       // fontWeight: 'bold'
+  italic: true,     // fontStyle: 'italic',
   caps: true,       // textTransform: 'uppercase', letterSpacing: '.1em'
 })
 ```
@@ -301,4 +302,3 @@ The following boolean keys can be passed to understyle.
 - `border<COLOR>` - border color - e.g. `borderRed`
 
 [MIT License](LICENSE.md)
-
