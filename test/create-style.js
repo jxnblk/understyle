@@ -63,6 +63,10 @@ const tests = [
     input:    { bold: true, },
     expected: { fontWeight: 700 }
   },
+  {
+    input:    { caps: true, },
+    expected: { textTransform: 'uppercase', letterSpacing: '.1em' }
+  },
 
   {
     input:    { padding: 0, },
@@ -263,5 +267,3 @@ tests.forEach(({ input, expected }) => {
   const obj = keyval(input)
   test(`parses ${JSON.stringify(obj)}`, proptest, obj, expected)
 })
-
-
