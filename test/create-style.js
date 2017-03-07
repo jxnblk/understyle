@@ -173,11 +173,11 @@ const tests = [
 
   {
     input:    { border: true },
-    expected: { border: '1px solid' }
+    expected: { borderWidth: 1, borderStyle: 'solid' }
   },
   {
     input:    { border: 2 },
-    expected: { border: '2px solid' }
+    expected: { borderWidth: 2, borderStyle: 'solid' }
   },
   {
     input:    { border: false },
@@ -185,19 +185,19 @@ const tests = [
   },
   {
     input:    { borderTop: true },
-    expected: { borderTop: '1px solid' }
+    expected: { borderTopWidth: 1, borderTopStyle: 'solid' }
   },
   {
     input:    { borderBottom: true },
-    expected: { borderBottom: '1px solid' }
+    expected: { borderBottomWidth: 1, borderBottomStyle: 'solid' }
   },
   {
     input:    { borderLeft: true },
-    expected: { borderLeft: '1px solid' }
+    expected: { borderLeftWidth: 1, borderLeftStyle: 'solid' }
   },
   {
     input:    { borderRight: true },
-    expected: { borderRight: '1px solid' }
+    expected: { borderRightWidth: 1, borderRightStyle: 'solid' }
   },
   {
     input:    { rounded: true },
