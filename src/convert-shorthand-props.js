@@ -21,6 +21,10 @@ const parseProp = (config) => ({ key, value }) => {
     return { key, value }
   }
 
+  if (key === 'flex' && typeof value === 'boolean') {
+    return { key: 'display', value: 'flex' }
+  }
+
   if (MP_REG.test(key)) {
     return parseNumberValue(key)
   }
