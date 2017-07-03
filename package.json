@@ -2,7 +2,7 @@
   "name": "understyle",
   "version": "2.0.4",
   "description": "Functional style utilities for authoring JavaScript style objects",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "scripts": {
     "prepublish": "mkdir -p dist && babel src --out-dir dist",
     "test": "ava -v"
